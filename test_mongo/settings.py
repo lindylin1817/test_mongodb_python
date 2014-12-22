@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-from mongoengine import connect
+APP_DIR = os.path.dirname(globals()['__file__'])
+DBNAME = 'blog'
 
-connect('DB_NAME')
+#TEMPLATE_DIRS = (
+#    os.path.join(APP_DIR, 'templates')
+#)
 
 
 # Quick-start development settings - unsuitable for production
@@ -63,8 +66,8 @@ WSGI_APPLICATION = 'test_mongo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

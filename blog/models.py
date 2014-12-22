@@ -1,8 +1,12 @@
 from django.db import models
-from mongoengine import Document
+from mongoengine import *
+from test_mongo.settings import DBNAME
 
 # Create your models here.
 
-class TestModel(Document)
-    test_key = StringField(required=True)
-    test_value = StringField(max_length=50)
+connect(DBNAME)
+
+class Post(Document):
+    title = StringField(max_length=120, required=True)
+    content = StringField(max_length=500, required=True)
+    last_update = DateTimeField(required=True)
